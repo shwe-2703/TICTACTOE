@@ -1,7 +1,9 @@
 package com.hello;
 
 import java.util.Random;
+
 import java.util.Scanner;
+
 
 public class TICTACTOE {
 
@@ -43,7 +45,11 @@ public class TICTACTOE {
 
     public static void toss() {
         Random rand = new Random();
+
         int tossResult = rand.nextInt(2);
+
+        int tossResult = rand.nextInt(2); // 0 or 1
+
 
         if (tossResult == 0) {
             userSymbol = 'X';
@@ -59,6 +65,7 @@ public class TICTACTOE {
     }
 
 
+
     public static int getUserInput() {
         Scanner sc = new Scanner(System.in);
 
@@ -67,4 +74,5 @@ public class TICTACTOE {
 
         return slot;
     }
+
 }
