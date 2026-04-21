@@ -1,31 +1,18 @@
-package com.hello;
-
 public class TICTACTOE {
 
-    static char[][] board = new char[3][3];
-
     public static void main(String[] args) {
-        initializeBoard();
-        printBoard();
+
+        int slot = 7;
+
+        System.out.println("Row: " + getRowFromSlot(slot));
+        System.out.println("Column: " + getColFromSlot(slot));
     }
 
-
-    public static void initializeBoard() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = '-';
-            }
-        }
+    static int getRowFromSlot(int slot) {
+        return (slot - 1) / 3;
     }
 
-
-    public static void printBoard() {
-        System.out.println("Tic-Tac-Toe Board:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
-        }
+    static int getColFromSlot(int slot) {
+        return (slot - 1) % 3;
     }
 }
