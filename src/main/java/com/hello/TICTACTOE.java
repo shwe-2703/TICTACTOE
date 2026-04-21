@@ -1,31 +1,32 @@
-package com.hello;
+public class TICTACTOE{
 
-public class TICTACTOE {
 
-    static char[][] board = new char[3][3];
-
+    static char[][] board = {
+            {'-', '-', '-'},
+            {'-', '-', '-'},
+            {'-', '-', '-'}
+    };
     public static void main(String[] args) {
-        initializeBoard();
-        printBoard();
+
+
+        System.out.println(isValidMove(1, 1)); // true
+        System.out.println(isValidMove(3, 0)); // false (out of bounds)
+
+        board[1][1] = 'X';
+        System.out.println(isValidMove(1, 1)); // false (already occupied)
     }
 
+    static boolean isValidMove(int row, int col) {
 
-    public static void initializeBoard() {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                board[i][j] = '-';
-            }
+
+        if (row < 0 || row > 2 || col < 0 || col > 2) {
+            return false;
         }
-    }
 
-
-    public static void printBoard() {
-        System.out.println("Tic-Tac-Toe Board:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(board[i][j] + " ");
-            }
-            System.out.println();
+        if (board[row][col] != '-') {
+            return false;
         }
+
+        return true;
     }
 }
