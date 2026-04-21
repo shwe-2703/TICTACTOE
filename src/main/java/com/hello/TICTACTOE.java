@@ -2,6 +2,9 @@ package com.hello;
 
 import java.util.Random;
 
+import java.util.Scanner;
+
+
 public class TICTACTOE {
 
     static char[][] board = new char[3][3];
@@ -14,6 +17,9 @@ public class TICTACTOE {
         initializeBoard();
         toss();
         printBoard();
+
+        int slot = getUserInput();
+        System.out.println("You selected: " + slot);
     }
 
 
@@ -39,7 +45,11 @@ public class TICTACTOE {
 
     public static void toss() {
         Random rand = new Random();
+
+        int tossResult = rand.nextInt(2);
+
         int tossResult = rand.nextInt(2); // 0 or 1
+
 
         if (tossResult == 0) {
             userSymbol = 'X';
@@ -53,4 +63,16 @@ public class TICTACTOE {
             System.out.println("Computer won the toss and plays first with X");
         }
     }
+
+
+
+    public static int getUserInput() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter slot number (1-9): ");
+        int slot = sc.nextInt();
+
+        return slot;
+    }
+
 }
